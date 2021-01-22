@@ -41,10 +41,6 @@ CREATE TABLE players (
 	email VARCHAR(45) NOT NULL,
 	birthday DATE NOT NULL,
 	level int NOT NULL ,
-<<<<<<< HEAD
-=======
-	jobs_id int NOT NULL,
->>>>>>> f9a0509f640c176865697047ab9f7d5bfca20864
 	UNIQUE (email),
 	guilds_id int FOREIGN KEY REFERENCES guilds(id),
 	classes_id int FOREIGN KEY REFERENCES classes(id),

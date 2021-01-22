@@ -13,6 +13,7 @@ END
 
 USE DB_MMORPG;
 
+--table "guilds"
 CREATE TABLE guilds(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -22,6 +23,7 @@ CREATE TABLE guilds(
 	UNIQUE (name)
 );
 
+--table "classes"
 CREATE TABLE classes(
 	id int NOT NULL Primary Key Identity (1,1),
 	name VARCHAR(45) NOT NULL,
@@ -29,7 +31,7 @@ CREATE TABLE classes(
 	UNIQUE (name)
 );
 
-
+--table "races"
 CREATE TABLE races(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -39,6 +41,7 @@ CREATE TABLE races(
 
 );
 
+--table "players"
 CREATE TABLE players (
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -57,7 +60,7 @@ CREATE TABLE players (
 );
 
 
-
+--table "spells"
 CREATE TABLE spells(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -69,7 +72,7 @@ CREATE TABLE spells(
 	UNIQUE (name)
 );
 
-
+--table "NPCs"
 CREATE TABLE NPCs(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -80,7 +83,7 @@ CREATE TABLE NPCs(
 );
 
 
-
+--table "quests"
 CREATE TABLE quests(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -92,7 +95,7 @@ CREATE TABLE quests(
 
 );
 
-
+--table "worlds"
 CREATE TABLE worlds(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -102,7 +105,7 @@ CREATE TABLE worlds(
 );
 
 
-
+--table "areas"
 CREATE TABLE areas(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -116,7 +119,7 @@ CREATE TABLE areas(
 
 
 
-
+--table "servers"
 CREATE TABLE servers(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -129,8 +132,8 @@ CREATE TABLE servers(
 
 );
 
-
-CREATE TABLE categories( -- catégories table items
+--table "categories"
+CREATE TABLE categories(
 
 	id int NOT NULL Primary Key Identity (1,1),
 	type VARCHAR(45) NOT NULL,
@@ -138,7 +141,7 @@ CREATE TABLE categories( -- catégories table items
 
 );
 
-
+--table "items"
 CREATE TABLE items(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -152,7 +155,7 @@ CREATE TABLE items(
 
 
 
-
+--table "types"
 CREATE TABLE types(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -161,6 +164,7 @@ CREATE TABLE types(
 
 );
 
+--table "ennemies"
 CREATE TABLE ennemies(
 
 	id int NOT NULL Primary Key Identity (1,1),
@@ -173,48 +177,52 @@ CREATE TABLE ennemies(
 );
 
 
+----------------------------------------------------TABLES INTERMEDIAIRES--------------------------------------
 
 
-
-
+--table "players_has_spells"
 CREATE TABLE players_has_spells( 
 players_id int FOREIGN KEY REFERENCES players(id),
 spells_id int FOREIGN KEY REFERENCES spells(id)
 );
 
 
+--table "players_has_items"
 CREATE TABLE players_has_items( 
 players_id int FOREIGN KEY REFERENCES players(id),
 items_id int FOREIGN KEY REFERENCES items(id)
 );
  
- 
+ --table "players_has_quests"
 CREATE TABLE players_has_quests( 
 players_id int FOREIGN KEY REFERENCES players(id),
 quests_id int FOREIGN KEY REFERENCES quests(id)
 );
-
+--table "players_has_worlds"
 CREATE TABLE players_has_worlds( 
 players_id int FOREIGN KEY REFERENCES players(id),
 worlds_id int FOREIGN KEY REFERENCES worlds(id)
 );
 
-
+--table "ennemies_has_quests"
 CREATE TABLE ennemies_has_quests( 
 ennemies_id int FOREIGN KEY REFERENCES ennemies(id),
 quests_id int FOREIGN KEY REFERENCES quests(id)
 );
 
+--table "guilds_has_quests"
 CREATE TABLE guilds_has_quests( 
 guilds_id int FOREIGN KEY REFERENCES guilds(id),
 quests_id int FOREIGN KEY REFERENCES quests(id)
 );
 
+--table "areas_has_NPCs"
 CREATE TABLE areas_has_NPCs( 
 areas_id int FOREIGN KEY REFERENCES areas(id),
 NPCs_id int FOREIGN KEY REFERENCES NPCs(id)
 );
 
+--table "areas_has_ennemies"
 CREATE TABLE areas_has_ennemies( 
 areas_id int FOREIGN KEY REFERENCES areas(id),
 ennemies_id int FOREIGN KEY REFERENCES ennemies(id)

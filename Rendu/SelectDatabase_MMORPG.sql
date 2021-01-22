@@ -19,6 +19,9 @@ select * from classes
 order by classes.id;
 
 --ennemies
+--ici on selectinne tous les ennemies avec a une jointure de la table type pour pouvoir afficher les differents nom, on expose les diffents level des ennmies superieur ou egal a 10.
+--Cela sera assez semblade pour les autres tables mis à part quelques differences. Comme par exemples des conditions qui seront diffentes de table à autres.
+
 select ennemies.name,ennemies.level, types.type from ennemies
 inner join types on ennemies.types_id = types.id
 where ennemies.level <= 10

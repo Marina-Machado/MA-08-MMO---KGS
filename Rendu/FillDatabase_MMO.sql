@@ -1,8 +1,7 @@
 /*Les données de toutes les tables de cette BD ont étées générées grâce à "Mockaroo.com". On a eu pas mal de difficultés parce que ce site n'intégre pas les options d'unicité. 
 Dû à ce problème d'unicité, nous n'avons donc eu que d'autre choix de remplir entre 50 et 200 données séparemment dans chaque ligne manuellement.
-Donc c'est pour cela lorsque vous executerez ce script, il y aura pas mal d'erreurs par rapport aux clés étrangères et d'unicité. 
 
-Malheuresement, je pense que dans 2-3 tables intermediaires, il y aura également plus de 500 données dans celles-ci.*/
+Donc c'est pour cela lorsque vous executerez ce script, il y aura quelques erreurs par rapport aux clés étrangères et d'unicité. */
 
 
 --inseration des données pour la table WORLDS

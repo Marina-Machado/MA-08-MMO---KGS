@@ -1,3 +1,9 @@
+/* 
+Pour executer ce script, il faut d'abord exectuer de "IF DB_ID('DB_MMORPG') IS NULL" jusqua "END"
+
+seulement après vous pouvez tout executer sans aucun soucis
+*/
+
 IF DB_ID('DB_MMORPG') IS NULL
 BEGIN
 

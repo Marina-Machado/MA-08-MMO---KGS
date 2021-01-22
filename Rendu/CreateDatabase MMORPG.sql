@@ -18,7 +18,7 @@ CREATE TABLE guilds(
 	id int NOT NULL Primary Key Identity (1,1),
 	name VARCHAR(45) NOT NULL,
 	nbPlayers int NOT NULL,
-	level int NOT NULL,
+	level int CHECK (level >= 10) NOT NULL,
 	UNIQUE (name)
 );
 
@@ -51,6 +51,9 @@ CREATE TABLE players (
 	guilds_id int FOREIGN KEY REFERENCES guilds(id),
 	classes_id int FOREIGN KEY REFERENCES classes(id),
 	races_id int FOREIGN KEY REFERENCES races(id)
+
+
+
 );
 
 
@@ -83,7 +86,7 @@ CREATE TABLE quests(
 	id int NOT NULL Primary Key Identity (1,1),
 	name VARCHAR(45) NOT NULL,
 	description VARCHAR(255) NULL,
-	ExperienceGained int NOT NULL,
+	ExperienceGained int CHECK(ExperienceGained >= 10) NOT NULL,
 	UNIQUE (name),
 	players_id int FOREIGN KEY REFERENCES players(id)
 
